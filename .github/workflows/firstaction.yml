@@ -17,7 +17,18 @@ jobs:
       name: Joe D.
     steps:
     - name: Run a one-line script
-      run: echo Hello, $name example!
+      run: |
+        echo Hello, $name example!
+        echo now multiline- Actor: ${{github.actor}}
+        echo Committed by:: ${{github.event.commits[0].author.name}}
+      
+ dump:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GITHUB_CONTEXT: ${{toJson(github)}}
+        run: echo "$GITHUB_CONTEXT"
+  
         
   pull_requests_only:
 
