@@ -22,7 +22,7 @@ jobs:
         echo now multiline- Actor: ${{github.actor}}
         echo Committed by:: ${{github.event.commits[0].author.name}}
       
- dump:
+  dump:
     runs-on: ubuntu-latest
     steps:
       - env:
